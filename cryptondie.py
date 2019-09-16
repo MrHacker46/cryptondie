@@ -11,9 +11,22 @@ def get_public_info():
     request = requests.get("https://ipinfo.io")
 
     if request.status_code == 200:
-        response = request.json()
-    
-    return response
+        public_info = request.json()
+
+        print("-" * 67)
+        info.log("Public IP: {0}".format(public_info["ip"]))
+        info.log("Hostname: {0}".format(public_info["hostname"]))
+        info.log("City: {0}".format(public_info["city"]))
+        info.log("Region: {0}".format(public_info["region"]))
+        info.log("Country: {0}".format(public_info["country"]))
+        info.log("Loc: {0}".format(public_info["loc"]))
+        info.log("Org: {0}".format(public_info["org"]))
+        info.log("Postal: {0}".format(public_info["postal"]))
+        info.log("Timezone: {0}".format(public_info["timezone"]))
+        print("-" * 67)
+
+    else:
+        info.log("Error")
 
 def get_time():
     today = datetime.now()
@@ -40,21 +53,7 @@ def main():
     encrypt = encryption.EncryptionData(key)
     files = search_files.SearchDirThree(directory)
     all_files = files.search_all_files()
-
-    public_info = get_public_info()
     
-    print("-" * 67)
-    info.log("Public IP: {0}".format(public_info["ip"]))
-    info.log("Hostname: {0}".format(public_info["hostname"]))
-    info.log("City: {0}".format(public_info["city"]))
-    info.log("Region: {0}".format(public_info["region"]))
-    info.log("Country: {0}".format(public_info["country"]))
-    info.log("Loc: {0}".format(public_info["loc"]))
-    info.log("Org: {0}".format(public_info["org"]))
-    info.log("Postal: {0}".format(public_info["postal"]))
-    info.log("Timezone: {0}".format(public_info["timezone"]))
-    print("-" * 67)
-
     info.log("Search all files in {0}\n".format(directory))
     info.log("Started in: {0}".format(get_time()))
 
@@ -72,4 +71,5 @@ def main():
 
 if __name__=='__main__':
     info.banner()
+    get_public_info()
     main()
