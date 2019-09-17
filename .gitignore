@@ -2,3 +2,4 @@
 .venv
 *teste*
 *pycache*
+*.db
