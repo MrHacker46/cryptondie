@@ -5,7 +5,7 @@
   <p align="center">CryptonDie is a ransomware developed for study purposes.</p>
 
   <p align="center">
-    <a href="https://twitter.com/zer0dx">
+    <a href="https://twitter.com/zer0dxx">
       <img src="https://img.shields.io/badge/twitter-@zer0dxx-blue.svg">
     </a>
   </p>
