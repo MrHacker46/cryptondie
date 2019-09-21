@@ -59,5 +59,4 @@ def main():
 
 if __name__=='__main__':
     info.banner()
-    get_public_info()
     main()
