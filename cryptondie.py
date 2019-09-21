@@ -2,6 +2,7 @@ import argparse
 import json
 import requests
 import random
+import string
 
 from modules import encryption
 from modules import search_files
@@ -15,7 +16,7 @@ def get_time():
 
     return today
     
-def generate_random_string(self, length=32):
+def generate_random_string(length=32):
     letters = string.ascii_lowercase
     random_string = ''.join(random.choice(letters) for i in range(length))
     return random_string
