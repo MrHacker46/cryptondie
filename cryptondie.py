@@ -7,27 +7,6 @@ from modules import search_files
 from modules import info
 from datetime import datetime
 
-def get_public_info():
-    request = requests.get("https://ipinfo.io")
-
-    if request.status_code == 200:
-        public_info = request.json()
-
-        print("-" * 67)
-        info.log("Public IP: {0}".format(public_info["ip"]))
-        info.log("Hostname: {0}".format(public_info["hostname"]))
-        info.log("City: {0}".format(public_info["city"]))
-        info.log("Region: {0}".format(public_info["region"]))
-        info.log("Country: {0}".format(public_info["country"]))
-        info.log("Loc: {0}".format(public_info["loc"]))
-        info.log("Org: {0}".format(public_info["org"]))
-        info.log("Postal: {0}".format(public_info["postal"]))
-        info.log("Timezone: {0}".format(public_info["timezone"]))
-        print("-" * 67)
-
-    else:
-        info.log("Error")
-
 def get_time():
     today = datetime.now()
     today = today.strftime("%d/%m/%Y %H:%M:%S")
