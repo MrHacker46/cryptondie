@@ -1,7 +1,7 @@
 import json
 import requests
-import base64
 import random
+import string
 
 class CreateInfos():
     def __init__(self, target_id):
@@ -17,9 +17,7 @@ class CreateInfos():
         return 'error'
     
     def generate_key(self):
-        string_random = random.random()
-        target_key = base64.b32encode(str.encode(str(string_random)))
-
+        target_key = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(32)])
         return target_key
     
     def send_infos(self):
@@ -43,7 +41,7 @@ class CreateInfos():
         }
 
         request = requests.post(url=url, json=data, headers=headers)
-        
+
         if request.status_code == 200:
             print("success")
         
