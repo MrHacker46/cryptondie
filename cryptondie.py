@@ -6,7 +6,7 @@ from modules import encryption
 from modules import search_files
 from modules import info
 from datetime import datetime
-from create_infos import CreateInfos
+from modules import create_infos
 
 def get_time():
     today = datetime.now()
