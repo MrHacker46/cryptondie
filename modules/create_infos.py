@@ -44,8 +44,3 @@ class CreateInfos():
 
         if request.status_code == 200:
             print("success")
-        
-
-
-
-
