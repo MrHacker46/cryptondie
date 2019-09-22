@@ -19,7 +19,7 @@ class CreateInfos():
     def send_infos(self, web_service, target_key):
         public_info = self.ip_lookup()
 
-        url = f'{web_service}/{self.target_id}'
+        url = f'{web_service}/target/{self.target_id}'
         headers = {'Content-Type': 'application/json'}
 
         data = {
