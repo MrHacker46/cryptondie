@@ -23,7 +23,7 @@
     --verbose   Active verbose mode, default is False
 
 Example:
-    python3 cryptondie.py --dir /var/www/ --key 0123456789abcdef --encrypt --verbose
+    python3 cryptondie.py --web-service http://127.0.0.1:5000 --dir /var/www/ --encrypt --verbose
 
 ```
 
