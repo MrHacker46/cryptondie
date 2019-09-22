@@ -13,14 +13,13 @@ class CreateInfos():
         if request.status_code == 200:
             public_info = request.json()
             return public_info
-        
-        return 'error'
-        
-    def send_infos(self, target_key):
-        public_info = self.ip_lookup()
-        target_key = target_key
 
-        url = f'http://127.0.0.1:5000/target/{self.target_id}'
+        return 'error'
+
+    def send_infos(self, web_service, target_key):
+        public_info = self.ip_lookup()
+
+        url = f'{web_service}/{self.target_id}'
         headers = {'Content-Type': 'application/json'}
 
         data = {
