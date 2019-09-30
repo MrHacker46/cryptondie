@@ -37,7 +37,7 @@ POST  - /target/<target_id>   - create new target
 
 <hr>
 
-## how to run this shit?
+## how to run?
 
 ### Clonning repository
 
