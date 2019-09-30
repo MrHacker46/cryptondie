@@ -10,11 +10,10 @@ class EncryptionData():
         self.remove_file = True
 
     def read_file(self, data):
-        open_file = open(data, "rb")
-        read_file_data = open_file.read()
-        open_file.close()
+        with open(data, "rb") as file:
+            read_file = file.read()
 
-        return read_file_data
+        return read_file
 
     def rename_file(self, file_name, data):
         if self.extension_enc in file_name:
