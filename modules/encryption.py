@@ -27,9 +27,8 @@ class EncryptionData():
         else:
             new_file_name = "{0}{1}".format(file_name, self.extension_enc)
         
-        new_file = open(new_file_name, "wb")
-        new_file.write(data)
-        new_file.close()
+        with open(new_file_name, "wb") as new_file:
+            new_file.write(data)
 
         if self.remove_file:
             os.remove(file_name)
